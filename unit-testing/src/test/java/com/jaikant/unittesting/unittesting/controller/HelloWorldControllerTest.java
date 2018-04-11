@@ -5,6 +5,8 @@ package com.jaikant.unittesting.unittesting.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,9 +29,14 @@ public class HelloWorldControllerTest {
     @Test
     public void helloWorld_basic() throws Exception {
         // call "hello-world" service
-        // verify repsonse content
+
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/hello-world").accept(APPLICATION_JSON);
-        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        // MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        MvcResult result = mockMvc.perform(requestBuilder)
+                    .andExpect(status().isOk())
+                    .andExpect(content().string("Hello World"))
+                    .andReturn();
+        // verify repsonse content
         assertEquals("Hello World", result.getResponse().getContentAsString());
     }
 
