@@ -28,43 +28,37 @@ public class SomeBusinessMockTest {
     @Test
     public void calculateSumUsingDataService_basic() {
         when(someDataService.retrieveAllData()).thenReturn(new int[] { 1, 2, 3 });
-        int actualResult = business.calculateSumUsingDataService();
-        assertEquals(6, actualResult);
+        assertEquals(6, business.calculateSumUsingDataService());
     }
 
     @Test
     public void calculateSumUsingDataService_empty() {
         when(someDataService.retrieveAllData()).thenReturn(new int[] { });
-        int actualResult = business.calculateSumUsingDataService();
-        assertEquals(0, actualResult);
+        assertEquals(0, business.calculateSumUsingDataService());
     }
 
     @Test
     public void calculateSumUsingDataService_oneValue() {
         when(someDataService.retrieveAllData()).thenReturn(new int[] { 10 });
-        int actualResult = business.calculateSumUsingDataService();
-        assertEquals(10, actualResult);
+        assertEquals(10, business.calculateSumUsingDataService());
     }
 
     @Test
     public void calculateSum_basic() {
         SomeBusinessImpl business = new SomeBusinessImpl();
-        int actualResult = business.calculateSum(new int[] { 1, 2, 3 });
-        assertEquals(6, actualResult);
+        assertEquals(6, business.calculateSum(new int[] { 1, 2, 3 }));
     }
 
     @Test
     public void calculateSum_empty() {
         SomeBusinessImpl business = new SomeBusinessImpl();
-        int actualResult = business.calculateSum(new int[] { });
-        assertEquals(0, actualResult);
+        assertEquals(0, business.calculateSum(new int[] { }));
     }
 
     @Test
     public void calculateSum_oneValue() {
         SomeBusinessImpl business = new SomeBusinessImpl();
-        int actualResult = business.calculateSum(new int[] { 10 });
-        assertEquals(10, actualResult);
+        assertEquals(10, business.calculateSum(new int[] { 10 }));
     }
 
 }
