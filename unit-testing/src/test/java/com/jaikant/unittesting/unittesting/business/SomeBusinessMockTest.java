@@ -19,7 +19,7 @@ import com.jaikant.unittesting.unittesting.data.SomeDataService;
 public class SomeBusinessMockTest {
 
     @InjectMocks
-    SomeBusinessImpl business = new SomeBusinessImpl();
+    SomeBusinessImpl business;
 
     @Mock
     SomeDataService someDataService;
